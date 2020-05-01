@@ -11,26 +11,27 @@ function randomArr(n){
 var varA = 80;
 var varB = 25;
 function updateScreen(arr, temp=false, grafikDiziLen=false){
-  var htmlStr = "";
+  var grafR = "";
   var target = temp ? "#temp-grid" : "#grid-container";
   var arrLen = grafikDiziLen ? grafikDiziLen : arr.length;
   for (var i=0; i<arr.length; i++){
-    htmlStr += '<div class="grid-element" id="bar'+i+'" style="height:' + arr[i]/(temp+1) + 'px; background-color: rgb('+Math.floor(arr[i]/1.40)+','+varB+','+varA+');"></div>';
+    grafR += '<div class="grid-element" id="bar'+i+'" style="height:' + arr[i]/(temp+1) + 'px; background-color: rgb('+Math.floor(arr[i]/1.40)+','+varB+','+varA+');"></div>';
   }
   $(target).css("grid-template-columns", "repeat("+arrLen+",1fr)");
-  $(target).html(htmlStr);
+  $(target).html(grafR);
 }
 
 //Önceden belirlenmiş Dizi Boyutları ve Animasyon Gecikmesi //
+var arrLength = 50;
+var animDelay = 40;
 var grafikDizi;
 var grafikDiziCopy;
-var arrLength = 50;
-var animDelay = 30;
 $("#sayac-giris").change(() => {
   if ($("#sayac-giris").val() > 1000) $("#sayac-giris").val(1000);
   arrLength = $("#sayac-giris").val();
   updateGlobalArrays();
 });
+
 $("#anim-delay").change(() => {
   if ($("#anim-delay").val() < 0) $("#anim-delay").val(0);
   animDelay = $("#anim-delay").val();
@@ -46,10 +47,14 @@ function updateGlobalArrays(arr=undefined){
   updateScreen(grafikDizi);
 }
 
-// Dizi girmek için gereken popup ekran düzenlemeleri // 
+// Dizi girmek ve Sayaç Görüntülemek için gereken popup ekran düzenlemeleri // 
 
 $("#dizi-giris").on("click", () => {
   $("#popup").css("display", "inherit");
+});
+
+$("#sayac-gor").on("click", () => {
+  $("#popup2").css("display", "inherit");
 });
 
 $("#kapat-popup").on("click", () => {
@@ -59,6 +64,10 @@ $("#kapat-popup").on("click", () => {
   var scale = 300/Math.max(...input);
   input = input.map((x) => x*scale);
   updateGlobalArrays(input);
+});
+
+$("#kapat-popup2").on("click", () => {
+  $("#popup2").css("display", "none");
 });
 
 updateGlobalArrays();
@@ -72,20 +81,18 @@ function resetAnimation(clearTemp=true){
   animIndex = 0;
   insertKs = [];
   insertIs = [];
-  insertArrCopies = [];
-  bubbleArrCopies = [];
-  bubbleColors = [];
+  yeniDiziDuzen = [];
   if (clearTemp) updateScreen([], true);
   window.clearInterval(intervalId);
-  console.log("Animation Completed");
 }
 
-// InsertionSort Algoritması ve Animasyonlar // 
+// InsertionSort Algoritması, Sayaç ve Animasyonlar // 
 var animIndex = 0;
 var intervalId;
+var sayacQ= 0;
 var insertIs = [];
 var insertKs = [];
-var insertArrCopies = [];
+var yeniDiziDuzen = [];
 function insertionSort(arr){
   var tempArray;
 	for (var i=1; i<arr.length; i++){
@@ -93,10 +100,11 @@ function insertionSort(arr){
       insertIs.push(i);
       insertKs.push(k);
       tempArray = [];
+      sayacQ++;
       for (var l=0; l<arr.length; l++){
         tempArray.push(arr[l]);
       }
-      insertArrCopies.push(tempArray);
+      yeniDiziDuzen.push(tempArray);
 			if (arr[k] < arr[i]){
 				move(arr,i,k+1);
 				break;
@@ -105,7 +113,10 @@ function insertionSort(arr){
 				move(arr,i,0);
 			}
 		}
-	}
+  }
+  const sayacQText = document.getElementById('sayacQ');
+  sayacQText.innerText = `${sayacQ}`;
+  sayacQ = 0;
 	return arr;
 }
 
@@ -120,11 +131,11 @@ function updateTree(arr){
 		counter++;
 	}
   
-  var htmlStr = "";
+  var grafR = "";
   for (var i=0; i<arr.length; i++){
-    htmlStr += '<div class="grid-element tree-element bar'+i+'" style="background-color: rgb('+Math.floor(arr[i]/1.57)+','+varB+','+varA+');"></div>';
+    grafR += '<div class="grid-element tree-element bar'+i+'" style="background-color: rgb('+Math.floor(arr[i]/1.57)+','+varB+','+varA+');"></div>';
   }
-  $("#temp-grid").html(htmlStr);
+  $("#temp-grid").html(grafR);
   
   $("#temp-grid").css("grid-template-columns", "repeat("+numCols+",1fr)");
   $("#temp-grid").css("grid-gap", "2px");
@@ -155,12 +166,12 @@ function updateTree(arr){
 }
 
 function animHandlerInsert(){
-  if (insertArrCopies[animIndex] == undefined){
+  if (yeniDiziDuzen[animIndex] == undefined){
     updateScreen(grafikDizi);
     resetAnimation();
     return;
   }
-  updateScreen(insertArrCopies[animIndex]);
+  updateScreen(yeniDiziDuzen[animIndex]);
   $("#bar"+insertIs[animIndex]).css("background-color","#0081DA");
   $("#bar"+insertKs[animIndex]).css("background-color","#001421");
   animIndex++;
@@ -170,4 +181,3 @@ $("#insertion-sort").on("click", () => {
   insertionSort(grafikDizi);
   intervalId = window.setInterval(animHandlerInsert, animDelay);
 });
-

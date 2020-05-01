@@ -72265,15 +72265,6 @@ video {
 
 /*Ek CSS gereklilikleri ve düzenlemeri*/
 
-#rastgele {
-  margin-left: 10px;
-  font-size: 14px;
-}
-
-#dizi-giris {
-  font-size: 14px;
-}
-
 #grid-container, #temp-grid{
   display: grid;
   z-index: -1;
@@ -72298,12 +72289,24 @@ video {
 
 .text-input {
   display: inline;
-  margin: 0;
   font-size: 25px;
   padding-bottom: 0px;
 }
 
 #popup{
+  position: fixed;
+  display: none;
+  background-color: rgb(231, 234, 240);
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+}
+
+#popup2{
   position: fixed;
   display: none;
   background-color: rgb(231, 234, 240);
@@ -72328,8 +72331,32 @@ video {
   border-radius: 90%;
 }
 
+#kapat-popup2 {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  top: -8px;
+  right: -5px;
+  background-color: rgb(203, 195, 211);
+  cursor: pointer;
+  border: 0px;
+  border-radius: 90%;
+}
+
 #input-arr-container {
   grid-template-columns: 15px auto 15px ;
   border: 0px;
   border-radius: 100%;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+            width: 12px;
+            -webkit-appearance: none;
+  			appearance: none;
+            height: 12px;
+            cursor: ew-resize;
+            background: rgb(131, 50, 238);
+            box-shadow: -405px 0 5px 400px rgb(152, 142, 185);
+            border-radius: 50%;
+            
+        }

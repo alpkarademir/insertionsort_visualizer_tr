@@ -1,5 +1,5 @@
 <!-- Algoritma Analizi Dersi için Alp Furkan Karademir tarafından HTML, JS ve TailwindCSS kullanılarak hazırlanmıştır-->
-<!-- 28/04/2020 // Süleyman Demirel Üniversitesi-->
+<!-- 29/04/2020 // Süleyman Demirel Üniversitesi-->
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -8,44 +8,49 @@
   <link rel='stylesheet' href="./style.css">
 </head>
 <body>
-  <div>
-  <div class="w-10/12 mx-auto px-1 py-3">
-    <div class="flex items-start">
-      <div class="w-4/12 mx-2 px-3 bg-purple-800 rounded-lg">
-        <div class="font-mono pb-25">
+  <!--Yazı Alanları-->
+  <div class="w-11/12 mx-auto px-1 py-1">
+    <div class="flex items-start font-mono">
+      <div class="w-2/12 mx-1 px-3 bg-purple-800 rounded-lg">
           <p class="text-center text-yellow-200 text-xs">{PseudoCode}</p>
-          <p class="text-center text-teal-200 text-xs"><strong class="text-red-400">for</strong> i = 1 to length(A)</p>
-          <p class="text-center text-teal-200 text-xs">  x = A[i] </p>
-          <p class="text-center text-teal-200 text-xs">  j = i - 1 </p>
-          <p class="text-center text-teal-200 text-xs">  <strong class="text-orange-300">while</strong> j >= 0 and A[j] > x </p>
-          <p class="text-center text-teal-200 text-xs"> A[j+1] = A[j] </p>
-          <p class="text-center text-teal-200 text-xs"> j = j - 1 </p> 
-          <p class="text-center text-teal-200 text-xs">  <strong class="text-orange-300">end while</strong> </p>
-          <p class="text-center text-teal-200 text-xs">  A[j+1] = x </p>
-         <p class="text-center text-teal-200 text-xs"><strong class="text-red-400">end for </strong></p>
+          <p class="text-center text-teal-100 text-xs"><strong class="text-red-400">for</strong> i = 1 to length(A)</p>
+          <p class="text-center text-teal-100 text-xs"> x = A[i]</p>
+          <p class="text-center text-teal-100 text-xs"> j = i - 1 </p>
+          <p class="text-center text-teal-100 text-xs"><strong class="text-orange-300">while</strong></p>
+          <p class="text-center text-teal-100 text-xs">j >= 0 and A[j] > x </p>
+          <p class="text-center text-teal-100 text-xs"> A[j+1] = A[j] </p>
+          <p class="text-center text-teal-100 text-xs"> j = j - 1 </p> 
+          <p class="text-center text-teal-100 text-xs">  <strong class="text-orange-300">end while</strong> </p>
+          <p class="text-center text-teal-100 text-xs"> A[j+1] = x </p>
+         <p class="text-center text-teal-100 text-xs"><strong class="text-red-400">end for</strong></p>
+      </div>  
+      <div class="w-9/12 mx-1 p-3 bg-purple-800 rounded-lg">
+        <div class="font-mono">
+          <p class="text-white text-xs"><strong class="text-red-400">Insertion Sort (Eklemeli Sıralama)</strong> Algoritmasında amaç verilen bir veri seti içerisindeki değerleri sırayla okuyarak, kendinden önceki verilerle kıyaslayıp sonuca göre sıralamada en uygun yere koymasıdır. Bu işlem yapılırken dizi üzerinde sık sık kaydırma yapılır ve doğru pozisyona ilgili sayı yerleştirilir. Sınırlı, uygun sayıda veri setleri ile beraber hızlı ve güvenilir bir sıralama sonucu alma olanağı sağlar. Solda görüldüğü üzere döngü 1 den başlayarak dizi boyutu boyunca devam eder. Dizi içerisinde ki değer x değişkenine atanır. Bulunan pozisyondan bir önceki pozisyondan başlanır. Dizinin başına dönene yada mevcut elemandan daha küçük bir eleman bulana kadar döngüye devam edilir. Eğer bir önceki koşul sağlanırsa mevcut eleman bir sağa kaydırılır. Tekrar önceki pozisyona dönülüp işlem bu şekilde devam eder.</p>
+          <p class="text-white text-xs">Uygulama üzerinde <strong class="text-red-400">Boyut</strong> kıxsından matris büyütülüp, küçültülebilir.<strong class="text-red-400">Insertion Sort</strong>  tuşuna basılarak algoritmanın çalışması sağlanır, dizi değerleri sıralanır. <strong class="text-red-400">Gecikme değeri</strong> üzerinde değişiklik yapılarak algoritmanın çalışma (sıralama) hızı değiştirilebilir. Bunlara ek olarak,<strong class="text-red-400">Rastgele Dizi</strong> butonu kullanılarak belirlenmiş boyutta farklı ve herbiri değişik yeni değerler üretilebilir. <strong class="text-red-400">Dizi Gir</strong> butonu kullanılarak istenen değerlere sahip matrisler oluşturabilir. Uygulama çalışırken mavi renkli çubuk seçili olan değeri ve siyah çubuk da karşılaştırma yapılan değerleri gösterecektir.</p>
         </div>
       </div>
-
-      <div class="w-60 mx-2 p-3 bg-purple-800 rounded-lg">
+      <div class="w-3/12 mx-1 p-3 bg-purple-800 rounded-lg">
         <div class="font-mono">
-          <p class="text-white text-xs"><strong class="text-red-400">Insertion Sort (Eklemeli Sıralama)</strong> Algoritmasında amaç verilen bir veri seti içerisindeki değerleri sırayla okuyarak, kendinden önceki verilerle kıyaslayıp sonuca göre sıralamada en uygun yere koymasıdır. Bu işlem yapılırken dizi üzerinde sık sık kaydırma yapılır ve doğru pozisyona ilgili sayı yerleştirilir. Sınırlı, uygun sayıda veri setleri ile beraber hızlı ve güvenilir bir sıralama sonucu alma olanağı sağlar. Solda görülen PseudoCode'da olduğu gibi 1'den başlayan i değeri; verilen matrisin uzunluk değerine gelene kadar artar ve bu indekslere sahip değerleri önceki diğer değerler ile karşılaştırıp sıralama yapar. Tüm indeskler gezilip, değerler karşılaştırılır ve algoritma bu şekilde tamamlanmış; sona ermiş olur. Eklemeli Sıralamanın karmaşıklığı <strong class="text-red-400">O(n^2)</strong>’dir. Bunun sebebi dizideki eleman sayısı kadar geçiş gerekmesi ve her geçişte en kötü ihtimalle eleman sayısı kadar kaydırma gerekmesidir.</p>
-          <p class="text-white text-xs">Aşağıda rastgele oluşturulmuş 50 farklı değere sahip bir matris görselleştirilmiştir. Uygulama üzerinde <strong class="text-red-400">Boyut</strong> kıxsından matris büyütülüp, küçültülebilir.<strong class="text-red-400">Insertion Sort</strong>  tuşuna basılarak algoritmanın çalışması sağlanır, dizi değerleri sıralanır. <strong class="text-red-400">Gecikme değeri</strong> üzerinde değişiklik yapılarak algoritmanın çalışma (sıralama) hızı değiştirilebilir.</p>
-          <p class="text-white text-xs">Bunlara ek olarak,<strong class="text-red-400">Rastgele Dizi</strong> butonu kullanılarak belirlenmiş boyutta farklı ve herbiri değişik yeni değerler üretilebilir. <strong class="text-red-400">Dizi Gir</strong> butonu kullanılarak istenen değerlere sahip matrisler oluşturabilir. Uygulama çalışırken mavi renkli çubuk seçili olan değeri ve siyah çubuk da karşılaştırma yapılan değerleri gösterecektir.</p>
-
-        </div>
-      </div>
-      <div class="w-60 mx-2 p-3 bg-purple-800 rounded-lg">
-        <div class="font-mono">
-          <p><strong class="text-blue-500 text-xs">Math Code</p>
+            <p class="text-center text-yellow-200 text-xs">Math Code</p>
+            <p class="text-center text-teal-200 text-xs">∑i = 1 to n-1 (∑j = 0 to i-1 (1))</p>
+            <p class="text-center text-teal-200 text-xs"><strong class="text-red-400">=</strong></p>
+            <p class="text-center text-teal-200 text-xs">∑i = 1 to n-1 (i)</p>
+            <p class="text-center text-teal-200 text-xs"><strong class="text-red-400">=</strong></p>
+            <p class="text-center text-teal-200 text-xs">(1 + 2 + 3 + 4 .. + (n-1)) </p>
+            <p class="text-center text-teal-200 text-xs"><strong class="text-red-400">= </strong></p>
+            <p class="text-center text-teal-200 text-xs">n(n-1)/2</p>
+            <p class="text-center text-teal-200 text-xs"><strong class="text-red-600">∈</strong></p>   
+            <p class="text-center text-teal-200 text-xs"><strong class="text-orange-300">O(n²)</strong> |Complexity|</p>
         </div>
       </div>
     </div>
     </div>
 
-
+  <!--Grafik Gösterimi-->  
   <div id="grid-container"></div>
 
-
+  <!--Butonlar, Slider ve Popup Ekranlar-->
   <div class="w-10/12 mx-auto py-0">
   <div class="flex items-center justify-center">
     <button id="rastgele" class="bg-purple-700 font-bold text-white text-xs py-1 px-4 my-1 mx-2 rounded-full">
@@ -55,34 +60,38 @@
       Dizi Gir
     </button>
     <p class="text-xs mx-2">Boyut:</p>
-    <div class="md:w-1/12 py-2">
-      <input type="number" id="sayac-giris" class="sayac-giris mx-1 bg-gray-400 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="array count" value="50">
-    </div>
-    <p class="text-xs mx-2">Gecikme(ms):</p>
-    <div class="md:w-1/12 py-2 mx-2">
-    <input type="number" id="anim-delay" class="sayac-giris mx-1 bg-gray-400 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="animation delay" value="30">
-    </div>
-    <button id="insertion-sort" class="bg-blue-800 text-white font-bold py-1 px-3 my-1 mx-2 rounded-full">
+      <input type="range" id="sayac-giris" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-128 mx-2" name="array count" min="8" max="225" value="50">
+    <p class="text-xs ml-16">Gecikme(ms):</p>
+    <input type="range" id="anim-delay" class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-128 mx-2" name="animation delay" min="1" max="600" value="40">
+    <button id="insertion-sort" class="bg-blue-800 text-white text-xs font-bold py-1 px-3 my-1 mx-2 rounded-full">
     Insertion Sort
     </button>
+    <button id="sayac-gor" class="bg-blue-800 font-bold text-white text-xs py-1 px-3 my-1 mx-2 rounded-full">
+    Sıralama Sayısı
+    </button>
+    <div id="popup2">
+      <div class="w-100 mx-auto">
+      <p class="text-center font-bold font-mono text-teal-900 text-sm">Yapılan/Yapılacak Toplam Sıralama (Adım) Sayısı: </p>
+      <p class="text-center font-bold font-mono text-teal-600 text-xs">(Popup ekran açık kalırken butonları kullanarak adım sayısındaki değişimi gözlemleyebilirsiniz)</p>
+      <div id="sayacQ" class="text-center font-bold font-mono text-blue-900 text-lg"></div>
+      <button id="kapat-popup2" class="text-center font-bold font-mono text-blue-900 text-lg">X</button>
+    </div>
+  </div>
   </div>
   </div>
 
 <div id="popup">
-  <center>
-  <p>Dizi Değerlerini Giriniz</p>
+  <p class="text-center font-bold font-mono text-teal-900 text-xs">Dizi Değerlerini Giriniz</p>
   &thinsp;
-  </center> 
- 
   <div id="dizi-giris-container">
     <p></p>
     <input type="text" id="arr-input" name="Array Input" value="92,89,152,90,58,63,77,100,121,110">
     <p></p>
   </div>
-  <button id="kapat-popup">/\</button>
+  <button id="kapat-popup" class="text-center font-bold font-mono text-blue-900 text-lg">X</button>
 </div>
-  </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-  <script  src="./script.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script  src="./script.js"></script>
 </body>
 </html>
